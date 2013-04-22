@@ -1,4 +1,4 @@
-# cobbler-master-cookbook cookbook
+# cobbler_master
 
 # Requirements
 
@@ -10,4 +10,4 @@
 
 # Author
 
-Author:: YOUR_NAME (<YOUR_EMAIL>)
+Author:: Mikhail Panchenko <m@mihasya.com>
