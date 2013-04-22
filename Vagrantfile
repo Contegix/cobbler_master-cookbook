@@ -9,7 +9,7 @@ Vagrant.configure("2") do |config|
   config.vm.hostname = "cobbler-master-cookbook-berkshelf"
 
   # Every Vagrant virtual environment requires a box to build off of.
-  config.vm.box = "opscode-ubuntu-1204"
+  config.vm.box = "precise64"
 
   # The url from where the 'config.vm.box' box will be fetched if it
   # doesn't already exist on the user's system.
@@ -83,7 +83,8 @@ Vagrant.configure("2") do |config|
 
     chef.run_list = [
         "recipe[apt]",
-        "recipe[cobbler-master-cookbook::default]"
+        "recipe[cobbler_master::default]",
+        "recipe[cobbler_master::ubuntu-precise]"
     ]
   end
 end
