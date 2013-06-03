@@ -1,8 +1,9 @@
 f = "ubuntu-12.04.2-server-amd64.iso"
 
-if true || !`cobbler distro list`.strip().split(/\s/).map{|x| x.strip()}.include?("ubuntu1204-x86_64")
-	execute "wget http://releases.ubuntu.com/precise/#{f} -O /tmp/#{f}" do
-		not_if {File.exists?("/tmp/#{f}")}
+if !`cobbler distro list`.strip().split(/\s/).map{|x| x.strip()}.include?("ubuntu1204-x86_64")
+	remote_file "/tmp/#{f}" do
+		source "http://releases.ubuntu.com/precise/#{f}"
+		checksum "63b7c9474398295355f01f57a1657405ae85b1c21953c6c996bbb6374f07e3aa"
 	end
 	directory "/ubuntu1204" do
 		mode "0755"
